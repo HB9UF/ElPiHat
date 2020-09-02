@@ -1,0 +1,6 @@
+[submodule "RPi_Hat_Template"]
+	path = RPi_Hat_Template
+	url = https://github.com/xesscorp/RPi_Hat_Template
+[submodule "hb9uf.pretty"]
+	path = hb9uf.pretty
+	url = git@github.com:HB9UF/hb9uf.pretty.git
