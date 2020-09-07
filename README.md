@@ -36,7 +36,8 @@ USB-powered with the Hat inserted, but it is critical not to provide power
 via the DC/DC converter and the USB power supply simultaneously.
 
 Note that the package of the RECOM part may be difficult to solder by hand,
-thus you may want to order a stencil along with your boards.
+thus in case you decide to order PCBs from a board manufacturers, yu may
+want to order a stencil from them as well.
 
 
 # I/O circuitry
