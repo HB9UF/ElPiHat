@@ -23,7 +23,7 @@ The sound card works with a Raspbian stock image (see below).
 
 Since the transceiver will be powered from an external power supply anyway,
 it makes sense to derive the supply for the Pi from that same power supply.
-There board is therefore equipped with a [RECOM RPM-2.0](https://recom-power.com/pdf/Innoline/RPM-2.0.pdf)
+The board is therefore equipped with a [RECOM RPM-2.0](https://recom-power.com/pdf/Innoline/RPM-2.0.pdf)
 2 A DC/DC converter that can be powered from a wide range of input voltages
 (3 V to 17 V). The output voltage can be trimmed with external resistors (R2
 and R3). In Rev. 1.0 of the board, the voltage is slightly incrased to 5.1 V.
