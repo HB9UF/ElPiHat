@@ -1703,13 +1703,9 @@ Connection ~ 8850 5850
 Wire Wire Line
 	8850 5850 8300 5850
 Wire Wire Line
-	8000 5850 6300 5850
+	8000 5850 7500 5850
 Wire Wire Line
 	6300 5950 6850 5950
-Wire Wire Line
-	8400 5950 8400 6400
-Wire Wire Line
-	8400 6400 10700 6400
 Wire Wire Line
 	5700 5300 5950 5300
 Connection ~ 5700 5300
@@ -1779,7 +1775,7 @@ F 3 "" H 6850 6250 50  0001 C CNN
 $EndComp
 Connection ~ 6850 5950
 Wire Wire Line
-	6850 5950 8400 5950
+	6850 5950 7300 5950
 Wire Wire Line
 	5900 2700 5750 2700
 Wire Wire Line
@@ -1952,10 +1948,10 @@ $EndComp
 Text Notes 7200 1350 0    50   ~ 0
 FIXME:\nMisplaced on PCB
 $Comp
-L Device:D D?
+L Device:D D5
 U 1 1 5F6CA7B4
 P 3150 4600
-F 0 "D?" H 3350 4550 50  0000 L CNN
+F 0 "D5" H 3350 4550 50  0000 L CNN
 F 1 "B340" H 3350 4450 50  0000 L CNN
 F 2 "Diode_SMD:D_SMC" H 3150 4600 50  0001 C CNN
 F 3 "~" H 3150 4600 50  0001 C CNN
@@ -1991,4 +1987,39 @@ Connection ~ 2650 4600
 Connection ~ 2650 5050
 Wire Wire Line
 	2650 5050 2750 5050
+$Comp
+L Device:Jumper_NO_Small R?
+U 1 1 5F703687
+P 7500 6100
+F 0 "R?" V 7454 6148 50  0000 L CNN
+F 1 "NP" V 7545 6148 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 7500 6100 50  0001 C CNN
+F 3 "~" H 7500 6100 50  0001 C CNN
+	1    7500 6100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7300 6400 7300 5950
+Wire Wire Line
+	7300 6400 7500 6400
+Wire Wire Line
+	7500 6000 7500 5850
+Connection ~ 7500 5850
+Wire Wire Line
+	7500 5850 6300 5850
+Wire Wire Line
+	7500 6200 7500 6400
+Connection ~ 7500 6400
+Wire Wire Line
+	7500 6400 10700 6400
+Text Notes 7700 6250 0    50   ~ 0
+Short to\nbypass\nATtiny.
+Wire Notes Line
+	7400 6000 8050 6000
+Wire Notes Line
+	8050 6000 8050 6300
+Wire Notes Line
+	8050 6300 7400 6300
+Wire Notes Line
+	7400 6300 7400 6000
 $EndSCHEMATC

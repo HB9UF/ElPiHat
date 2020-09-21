@@ -63,7 +63,9 @@ potentiometer in 15 minutes increments. Values between 15 minutes and 2 hours
 can be programmed. The timer is set during startup and the LED flashes once
 for each 15 minutes. (I.e. two flashes amount to a timer of 30 minutes).
 The timer is only set during startup. The LED starts to blink when the timer
-trips, and transmit is disabled until the Raspberry Pi clears PTT.
+trips, and transmit is disabled until the Raspberry Pi clears PTT. Starting
+from Rev. 1.1: In case this facility is not used, the PTT input can be
+connected directly to the switching transistor by populating R5.
 
 Please refer to the [README file](https://github.com/HB9UF/Quasselsperre/blob/master/README.md)
 of our Quasselsperre project for further information on customizing,
