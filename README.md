@@ -86,7 +86,9 @@ section of the github page.
 ![Schematic](images/schematic.png)
 
 An interactive BOM is available
-[here](https://htmlpreview.github.io/?https://github.com/HB9UF/ElPiHat/blob/master/BOM/ibom.html).
+[for Rev 1.1 here](https://htmlpreview.github.io/?https://github.com/HB9UF/ElPiHat/blob/master/BOM/ibom.html),
+and 
+[for Rev 1.0 here](https://htmlpreview.github.io/?https://github.com/HB9UF/ElPiHat/blob/rev1.0/BOM/ibom.html).
 You can use it to populate the board and copy the BOM to the clipboard to order
 parts from DigiKey. Note that we keep a local stock of general purpose parts,
 thus we only added part numbers for specialized parts.
