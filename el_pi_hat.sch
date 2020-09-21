@@ -1751,7 +1751,7 @@ Wire Wire Line
 Wire Wire Line
 	8850 5600 8850 5500
 Text Notes 600  1000 0    250  ~ 50
-HB9UF EchoLink Hat Rev. 1.0
+HB9UF EchoLink Hat Rev. 1.1
 $Comp
 L Device:R R14
 U 1 1 6026025E
