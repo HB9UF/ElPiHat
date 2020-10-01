@@ -11,7 +11,7 @@ is included to clear the PTT line if the Raspberry Pi asserts PTT indefinitely.
 
 # Sound Card
 
-The Sound card is based on a [Cirrus Logic WM8731SEDS Audio CODEC](https://statics.cirrus.com/pubs/proDatasheet/WM8731_v4.9.pdf).
+The sound card is based on a [Cirrus Logic WM8731SEDS Audio CODEC](https://statics.cirrus.com/pubs/proDatasheet/WM8731_v4.9.pdf).
 The line input and line output (both stereo) are routed to JST XH connectors.
 The I2S bus is routed to the Raspberry Pi expansion header after
 series-termination with 33 Ω. The microphone input and headphone output are
