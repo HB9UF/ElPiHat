@@ -1,0 +1,16 @@
+Inbetriebnahme ohne die Stecker bestückt
+
+(1) 12VDC (10mA begrenzt reicht) bei IN von einem Labornetzteil speisen und beim Pin 2 auf der 40-pin GPIO Leiste messen, ob 5.25 V beim Output anliegt.
+- die blaue PGOOD/D2 LED sollte dauernd leuchten.
+- wenn weniger Spannung gemessen wird (so 4.9V), dann ist wohl mit R3 etwas faul
+- wenn LED nicht leuchtet: R4 überprüfen und Richtung der LED D2
+- wenn gar keine Spannung gemessen werden kann überprüfe FB1
+
+(2) Mit dem Laborneutzteil eine weitere 3.3 VDC (10mA begrenzt reicht) Spannung an Pin 17 bei der GPIO-Buchse anlegen. Die rote PTT/TOT/D3 LED sollte ein paarmal blinken. Spannung wegnehmen, Poti verstellen und nochmal anlegen, LED Sollte eine andere Anzahl Mal blinken. Die LED blinkt einmal pro 15 Minuten Quassesperre und der Grenzwert kann am Poti eingestellt werden.
+
+(3) Wenn das alles klappt: Alle Stecker und die 40 Pin Buchse anlöten und Pi starten. Mit 12VDC vom Labornetzgerät speisen 
+Achtung: Nicht gleichzeitig Pi normal via USB speisen!
+
+(4) Wenn der Pi gebootet hat:
+a) mit GPIO die COS/PTT Funktionalität testen
+b) die Soundkarte aktivieren (siehe Webseite) und schauen ob man damit aufnehmen und abspielen kann
