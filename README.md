@@ -105,6 +105,65 @@ dtoverlay=i2s-mmap
 dtoverlay=rpi-proto
 ```
 
+# Test
+
+For the first test do not solder the connector sockets to the PCB.
+
+Here is an image of the 40pin Pi-GPIO Connector.
+![Schematic](images/Pi-GPIO_Pfostenleiste.png)
+
+(1) Connect IN to 12VDC (limited to 10mA).
+Measure with DMM at Pin2 on 40pin Pi-GPIO Connector: 
+- There should be 5.25VDC
+- Blue PGOOD/D2 LED should be constant on
+- If measured voltage is lower (eg. 4.9VDC), look at R3
+- If there is 0VDC, look at FB1
+
+(2) Connect a second 3.3VDC voltage (limited to 10mA) to Pin17 on 40pin Pi-GPIO Connector:
+- Red PTT/TOT/D3 LED blinks. 
+Disconnect 3.3VDC voltage, change Poti position, connect 3.3VDC voltage again to Pin17.
+- Red PTT/TOT/D3 LED blinks different times.
+The red PTT/TOT/D3 LED blinks once per 15 minutes Quassesperre.
+Threshold can be set here with this Poti.
+
+(3) If everything OK, solder all connecors and 40pin Pi-GPIO Connector
+
+(4) Start Pi with 12VDC via ElPiHat (1A limit) 
+Caution! Do not power Pi via USB simultaneously!
+
+(5) As soon Pi has booted:
+a) Test COS/PTT functionality with GPIO
+The PTT line is controlled with GPIO25 on the Raspberry Pi and is active
+high:
+
+```
+$ echo 25 > /sys/class/gpio/export
+$ cd /sys/class/gpio/gpio25
+$ echo 1 > value # Assert PTT
+$ echo 0 > value # Clear PTT
+
+```
+Asserting PTT activates a transistor configured in open-drain mode, thus the
+PTT pin on the JST XH connector is grounded when PTT is asserted, and Hi-Z
+otherwise. A 100 Ω series resistor and a diode are used for protection.
+
+
+b) Enable sound card by adding the following entries to `/boot/config.txt`
+and reboot the Raspberry Pi:
+
+```
+dtparam=i2c_arm=on
+dtparam=i2s=on
+dtoverlay=i2s-mmap
+dtoverlay=rpi-proto
+```
+c) Record and (re)play samples.
+
+```
+arecord test.wav
+aplay test.wav
+```
+
 # License
 
-This project is released under the terms of the CC-BY-SA license. © 2020.
+This project is released under the terms of the CC-BY-SA license. © 2020 - 2021.
