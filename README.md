@@ -138,6 +138,7 @@ high:
 
 ```
 $ echo 25 > /sys/class/gpio/export
+$ echo out > direction
 $ cd /sys/class/gpio/gpio25
 $ echo 1 > value # Assert PTT
 $ echo 0 > value # Clear PTT
@@ -157,12 +158,11 @@ dtparam=i2s=on
 dtoverlay=i2s-mmap
 dtoverlay=rpi-proto
 ```
-c) Record and (re)play samples.
+c) Record and (re)play samples to test audio.
 
-```
-arecord test.wav
-aplay test.wav
-```
+Markup : 1. Start `alsamixer`, hit F6 and activate sound card 1 (`snd_rpi_proto`). Activate the `Output Mixer HiFi` item and set `CAPTURE` for the `Line` item.
+         2. Run `arecord -V stereo -fdat -D 'hw:CARD=sndrpiproto,DEV=0' > /dev/null` and observe the VU meter while injecting a signal into the left and the right channel. Once this works, arecord can be used to record a sample (e.g.`arecord test.wav`) for playback in the next step.
+         3. Play back the sample using `aplay -D 'plughw:CARD=sndrpiproto,DEV=0' test.wav`
 
 # License
 
