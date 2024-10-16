@@ -43,15 +43,29 @@ want to order a stencil from them as well.
 # I/O circuitry
 
 The PTT line is controlled with GPIO25 on the Raspberry Pi and is active
-high:
+high. It used to be possible to echo 25 to `/sys/class/gpio/export` and
+to then assert PTT manually using `/sys/class/gpio/gpio25/value`. You
+can still do that on recent versions of linux, but you have to add 25
+to the base of `gpiochip0`, which turns out to be 512+25=537:
 
 ```
-$ echo 25 > /sys/class/gpio/export
-$ cd /sys/class/gpio/gpio25
+$ echo 537 > /sys/class/gpio/export
+$ cd /sys/class/gpio/gpio537
 $ echo 1 > value # Assert PTT
 $ echo 0 > value # Clear PTT
 
 ```
+
+However, this is not recommended anymore. Instead, you should use `gpiod`:
+```
+$ gpioset 0 25=1 # Assert PTT
+$ gpioset 0 25=0 # Clear PTT
+
+```
+
+This only works as long as the pin is not exported using the deprecated
+`sysfs` interface. `gpioinfo` returns a summary of the current state
+of all gpio pins.
 
 Asserting PTT activates a transistor configured in open-drain mode, thus the
 PTT pin on the JST XH connector is grounded when PTT is asserted, and Hi-Z
